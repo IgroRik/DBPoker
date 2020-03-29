@@ -1,0 +1,41 @@
+﻿.sampletext {
+	color: White;
+	font-family: 'Comic Sans MS';
+	font-size: 18px;
+}
+.table {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.4);
+	border: groove;
+}
+.body {
+	background: url("../Materials/1241604.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.container.con{
+	background-color: white;
+	color: black;
+	font-family: 'Comic Sans MS';
+}
+.container {
+	background-color: rgba(0, 0, 0, 0.65);
+	padding-bottom: 7.5px;
+}
+
+A:link {
+	text-decoration: none;
+	color: white;
+}
+A:visited {
+	text-decoration: none;
+	color: antiquewhite;
+}
+A:active {
+	text-decoration: none;
+	color: black;
+}
+A:hover {
+	text-decoration: underline;
+	color: lightgrey;
+} 

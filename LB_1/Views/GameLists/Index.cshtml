@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LB_1.GameList>
+
+@{
+	ViewData["Title"] = "Гравці";
+}
+
+<h1>Гравці</h1>
+
+<p>
+	<a asp-action="Create">Додати гру або гравця</a>
+</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.GameId)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.PlayerId)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.DeltaMoney)
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+
+				<td>
+					@Html.DisplayFor(modelItem => item.Game.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Player.Login)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DeltaMoney)
+				</td>
+				<td>
+					<a asp-action="Edit" asp-route-id="@item.Id">Змінити</a> |
+					<a asp-action="Details" asp-route-id="@item.Id">Деталі</a> |
+					<a asp-action="Delete" asp-route-id="@item.Id">Видалити</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+<div class="table">
+	<div id="chart1"></div>
+</div>
+
+@section scripts{
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+	<script>
+		google.charts.load('current', { 'packages': ['corechart'] });
+		google.charts.setOnLoadCallback(drawChart);
+
+		function drawChart() {
+			$.get('/api/Value/JsonData', function (jsonData) {
+				data = google.visualization.arrayToDataTable(jsonData, false);
+				var option = {
+					title: "Співвідношеня виграних та програних фішок",
+					width: 450,
+					height: 300,
+				};
+				chart = new google.visualization.ColumnChart(document.getElementById('chart1'));
+				chart.draw(data, option);
+			})
+		}
+	</script>
+}

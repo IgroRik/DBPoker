@@ -1,0 +1,39 @@
+﻿@model LB_1.GameList
+
+@{
+    ViewData["Title"] = "Видалити запис";
+}
+
+<h1>Видалити запис</h1>
+
+<h3>Ви певні що бажаєте видалити цей запис?</h3>
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.DeltaMoney)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DeltaMoney)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Game.Id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Game.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Player.Login)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Player.Login)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Видалити" class="btn btn-danger" /> |
+        <a asp-action="Index">До списку</a>
+    </form>
+</div>

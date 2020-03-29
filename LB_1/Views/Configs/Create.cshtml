@@ -1,0 +1,43 @@
+﻿@model LB_1.Config
+
+@{
+    ViewData["Title"] = "Створити";
+}
+
+<h1>Створити</h1>
+
+<h4>Конфігурація</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoundTime" class="control-label"></label>
+                <input asp-for="RoundTime" class="form-control" />
+                <span asp-validation-for="RoundTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MinBet" class="control-label"></label>
+                <input asp-for="MinBet" class="form-control" />
+                <span asp-validation-for="MinBet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Створити" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">До всіх</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

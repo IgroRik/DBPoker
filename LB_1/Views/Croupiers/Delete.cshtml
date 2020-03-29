@@ -1,0 +1,39 @@
+﻿@model LB_1.Croupiers
+
+@{
+    ViewData["Title"] = "Видалити";
+}
+
+<h1>Видалити</h1>
+
+<h3>Чи дійсно ви звільнили його?</h3>
+<div>
+    <h4>Круп'є</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MaxBet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaxBet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Skill)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Skill)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Видалити" class="btn btn-danger" /> |
+        <a asp-action="Index">До списку</a>
+    </form>
+</div>
